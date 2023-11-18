@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt')
 'use strict';
 
 module.exports = {
