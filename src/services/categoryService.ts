@@ -17,5 +17,21 @@ export const categoryService = {
             perPage: perPage,
             total: count
         }
+    },
+
+    findByIdWithSeries: async (id: string) => {
+        const categoryWithSeries = await Category.findByPk(id, {
+            attributes: ['id', 'name'],
+            include: {
+                association: 'series',
+                attributes: [
+                    'id',
+                    'name',
+                    'synopsis',
+                    ['thumbnail_url', 'thumbnailUrl']
+                ]
+            }
+        })
+        return categoryWithSeries;
     }
 }
