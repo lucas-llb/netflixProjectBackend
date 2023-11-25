@@ -19,6 +19,8 @@ router.get('/series/popular', ensureAuth, seriesController.popular)
 router.get('/series/:id', ensureAuth, seriesController.show)
 
 router.get('/episodes/stream', ensureAuthByQuery, episodesController.stream)
+router.get('/episodes/:id/watchTime', ensureAuth, episodesController.getWatchTime)
+router.post('episodes/:id/watchTime', ensureAuth, episodesController.setWatchTime)
 
 router.post('/auth/register', authController.register);
 router.post('/auth/login', authController.login)
