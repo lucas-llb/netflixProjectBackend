@@ -79,5 +79,31 @@ export const serieService = {
             perPage: perPage,
             total: count
         };
+    },
+
+    getTopTenByLikes: async () => {
+        const result = await Serie.sequelize?.query(
+            `SELECT
+                series.id,
+                series.name,
+                series.synopsis,
+                series.thumbnail_url AS thumbnailUrl,
+                COUNT(users.id) AS likes
+            FROM series
+            LEFT OUTER JOIN likes ON
+                series.id = likes.serie_id
+            INNER JOIN users ON
+                users.id = likes.user_id
+            GROUP BY series.id
+            ORDER BY likes DESC
+            `
+        );
+
+        if(result){
+            const [topTen, metadata] = result
+            return topTen;
+        } else {
+            return null;
+        }
     }
 }

@@ -17,5 +17,16 @@ export const likeService = {
                 serieId
             }
         });
+    },
+
+    isLiked: async (userId: number, serieId: number) => {
+        const like = await Like.findOne( {
+            where: {
+                userId,
+                serieId
+            }
+        })
+
+        return like !== null;
     }
 }

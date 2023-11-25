@@ -5,7 +5,7 @@ import { episodesController } from './controllers/episodesController';
 import { authController } from './controllers/authController';
 import { ensureAuth, ensureAuthByQuery } from './middlewares/authMiddleware';
 import { favoritesController } from './controllers/favoritesController';
-import { likesController } from './controllers/likeController';
+import { likesController } from './controllers/likesController';
 
 const router = express.Router();
 
@@ -15,6 +15,7 @@ router.get('/categories/:id', ensureAuth, categoriesController.show)
 router.get('/series/featured', ensureAuth, seriesController.featured)
 router.get('/series/newest', seriesController.newest)
 router.get('/series/search', ensureAuth, seriesController.search)
+router.get('/series/popular', ensureAuth, seriesController.popular)
 router.get('/series/:id', ensureAuth, seriesController.show)
 
 router.get('/episodes/stream', ensureAuthByQuery, episodesController.stream)
