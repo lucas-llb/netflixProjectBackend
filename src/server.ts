@@ -18,7 +18,7 @@ app.use(router);
 
 const Port = process.env.PORT || 3000;
 
-app.listen(Port, () =>{
+app.listen(Port, async () =>{
     sequelize.authenticate().then(() => {
         console.log('Db connected')
     })
