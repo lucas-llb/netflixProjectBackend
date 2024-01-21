@@ -7,7 +7,8 @@ import { favoriteService } from "../services/favoriteService";
 
 export const seriesController = {
     show: async (req: AuthenticatedRequest, res: Response) => {
-        const { serieId } = req.params;
+        const serieId = req.params.id;
+        console.log(serieId)
         const userId = req.user!.id;
         try {
             const series = await serieService.findByIdWithEpisodes(serieId);

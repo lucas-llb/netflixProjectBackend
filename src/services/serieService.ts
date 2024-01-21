@@ -24,7 +24,8 @@ export const serieService = {
                 separate: true
             }
         });
-
+        console.log(id)
+        console.log(serieWithEpisodes);
         return serieWithEpisodes;
     },
 

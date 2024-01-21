@@ -41,6 +41,7 @@ export const episodesController = {
         const userId = req.user!.id;
         const episodeId = Number(req.params.id);
         const { seconds } = req.body;
+        console.log(seconds)
         
 
         try {
