@@ -1,6 +1,6 @@
 ## Getting Started
 
-First, run the docker database server ib ebg/docker folder:
+First, run the docker database server in eng/docker folder:
 
 ```bash
 docker-compose up -d postgres
